@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Pooja & Pranav | Mangal Parinay — 3 & 4 December 2026</title>
+  <meta name="description" content="Tap the diya to light the Sheesh Mahal. You are cordially invited to the auspicious wedding of Pooja Kumari & Pranav Kumar on December 3–4, 2026." />
+
+  <link rel="preload" as="image" href="assets/opening-first.webp" fetchpriority="high" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Calligraphy Script, Editorial Serif, Small Caps & Devanagari -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Rozha+One&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            obsidian: {
+              950: '#07070A',
+              900: '#0D0D12',
+              800: '#15151D',
+            },
+            gold: {
+              light: '#F2DC9F',
+              DEFAULT: '#DFC07C',
+              muted: '#B89858',
+              dark: '#8C6E32',
+            },
+            cream: {
+              DEFAULT: '#F3EDE2',
+              muted: '#C9B896',
+            }
+          },
+          fontFamily: {
+            script: ['"Great Vibes"', '"Alex Brush"', 'cursive'],
+            cinzel: ['Cinzel', 'serif'],
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['Montserrat', 'sans-serif'],
+            devanagari: ['"Noto Serif Devanagari"', 'serif'],
+            rozha: ['"Rozha One"', 'serif'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    :root {
+      --bg-outer: #07070A;
+      --bg-stage: #0D0D12;
+      --gold-primary: #DFC07C;
+      --gold-border: rgba(216, 184, 120, 0.36);
+      --cream-text: #F3EDE2;
+    }
+
+    html, body {
+      background-color: var(--bg-outer);
+      color: var(--cream-text);
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    /* Locked Scroll until Diya Ritual completes */
+    body.scroll-locked {
+      overflow: hidden;
+      height: 100dvh;
+    }
+
+    /* Ambient Desktop Backdrop Glow */
+    .desktop-ambient-bg {
+      background:
+        radial-gradient(circle at 50% 25%, rgba(223, 192, 124, 0.08) 0%, transparent 55%),
+        radial-gradient(circle at 50% 75%, rgba(184, 152, 88, 0.06) 0%, transparent 60%),
+        #07070A;
+    }
+
+    /* Main Responsive Vertical Stage (100vw on mobile, 440px framed stage on desktop) */
+    .invite-stage {
+      width: 100%;
+      max-width: 440px;
+      min-height: 100dvh;
+      margin: 0 auto;
+      background-color: var(--bg-stage);
+      position: relative;
+      box-shadow: 0 0 80px rgba(0, 0, 0, 0.92), 0 0 1px 1px rgba(216, 184, 120, 0.25);
+    }
+
+    @media (min-width: 640px) {
+      .invite-stage {
+        border-left: 1px solid var(--gold-border);
+        border-right: 1px solid var(--gold-border);
+      }
+    }
+
+    /* Pulsing Halo Over the Unlit Brass Diya */
+    @keyframes diyaPulse {
+      0% {
+        transform: translate(-50%, -50%) scale(0.85);
+        opacity: 0.85;
+        box-shadow: 0 0 0 0 rgba(242, 220, 159, 0.7);
+      }
+      70% {
+        transform: translate(-50%, -50%) scale(1.35);
+        opacity: 0;
+        box-shadow: 0 0 28px 14px rgba(223, 192, 124, 0);
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1.35);
+        opacity: 0;
+      }
+    }
+
+    .diya-halo {
+      position: absolute;
+      left: 50%;
+      top: 76%;
+      width: 68px;
+      height: 68px;
+      border-radius: 9999px;
+      border: 1.5px solid #F2DC9F;
+      background: radial-gradient(circle, rgba(242, 220, 159, 0.35) 0%, transparent 70%);
+      animation: diyaPulse 2.2s infinite ease-out;
+      pointer-events: none;
+    }
+
+    @keyframes flameFlicker {
+      0%, 100% { transform: scale(1) rotate(-1deg); opacity: 0.95; }
+      50% { transform: scale(1.06) rotate(1.5deg); opacity: 1; }
+    }
+
+    .flame-glow {
+      animation: flameFlicker 1.8s infinite ease-in-out;
+    }
+
+    /* Gentle Scroll Prompt Bounce */
+    @keyframes floatDown {
+      0%, 100% { transform: translateY(0); opacity: 0.85; }
+      50% { transform: translateY(7px); opacity: 1; }
+    }
+
+    .scroll-cue {
+      animation: floatDown 2s infinite ease-in-out;
+    }
+
+    /* Metallic Champagne Gold Text Gradient */
+    .gold-shimmer {
+      background: linear-gradient(135deg, #C7A254 0%, #F4E0A8 45%, #DFC07C 70%, #B38E43 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Scroll Reveal Transitions */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .reveal-item.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Bilingual Language Visibility */
+    body.lang-en .hi-text { display: none; }
+    body.lang-hi .en-text { display: none; }
+
+    /* Custom Minimal Scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: #07070A; }
+    ::-webkit-scrollbar-thumb { background: #8C6E32; border-radius: 9999px; }
+
+    .opening-hitarea { position:absolute; inset:0; z-index:25; width:100%; height:100%; cursor:pointer; background:transparent; }
+    .opening-hitarea .tap-label { position:absolute; left:50%; top:76%; transform:translate(-50%,-50%); }
+    .date-panel { background:linear-gradient(145deg,rgba(30,25,21,.9),rgba(10,10,15,.94)); border:1px solid rgba(216,184,120,.4); box-shadow:inset 0 0 35px rgba(223,192,124,.05),0 16px 35px rgba(0,0,0,.3); }
+    .family-panel { border:1px solid rgba(216,184,120,.28); background:linear-gradient(160deg,rgba(223,192,124,.08),rgba(15,15,21,.82)); }
+    .photo-placeholder { aspect-ratio:3/4; border:1px solid rgba(223,192,124,.42); border-radius:18px; background:radial-gradient(circle at 50% 30%,rgba(223,192,124,.15),transparent 60%),linear-gradient(145deg,#20202a,#0c0c12); display:flex; align-items:center; justify-content:center; text-align:center; padding:12px; color:#DFC07C; font:11px 'Cinzel',serif; letter-spacing:.12em; }
+    .mehendi-stage { position:relative; height:260vh; margin:0 -14px; }
+    .mehendi-sticky { position:sticky; top:0; height:100dvh; overflow:hidden; background:#08080c; }
+    .mehendi-sticky video { width:100%; height:100%; object-fit:cover; }
+    .mehendi-shade { position:absolute; inset:0; pointer-events:none; background:linear-gradient(to bottom,rgba(0,0,0,.5),transparent 35%,transparent 65%,rgba(0,0,0,.72)); }
+    .mehendi-caption { position:absolute; left:0; right:0; bottom:8%; text-align:center; pointer-events:none; }
+    .mehendi-progress { height:2px; width:42%; margin:12px auto 0; background:rgba(223,192,124,.25); overflow:hidden; }
+    .mehendi-progress span { display:block; width:0%; height:100%; background:#DFC07C; }
+    @media (prefers-reduced-motion:reduce) { .reveal-item { transition:none; } }
+
+  </style>
+</head>
+
+<body class="lang-en scroll-locked desktop-ambient-bg antialiased selection:bg-gold/25 selection:text-gold-light" id="appBody">
+
+  <!-- ===================================================================== -->
+  <!-- CENTERED ROYAL STAGE (FULL-BLEED ON MOBILE, 440PX STAGE ON DESKTOP)   -->
+  <!-- ===================================================================== -->
+  <div class="invite-stage" id="inviteStage">
+
+    <!-- Animated Mirror-Dust Sparkles Canvas across the entire invite -->
+    <canvas id="mirrorDustCanvas" class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-[440px] h-full pointer-events-none z-20"></canvas>
+
+    <!-- =================================================================== -->
+    <!-- STAGE 1: INTERACTIVE OPENING RITUAL (UNLIT DIYA -> VIDEO -> SCROLL) -->
+    <!-- =================================================================== -->
+    <section id="openingGate" class="relative w-full h-[100dvh] bg-obsidian-950 overflow-hidden select-none z-30">
+
+      <!-- Top Quick Skip Link -->
+      <div class="absolute top-4 inset-x-0 z-40 flex justify-center">
+        <button
+          id="skipOpeningBtn"
+          type="button"
+          class="px-4 py-1.5 rounded-full bg-black/55 backdrop-blur-md border border-gold/30 text-[11px] font-sans tracking-[0.18em] uppercase text-cream-muted hover:text-gold-light transition-colors cursor-pointer"
+        >
+          <span class="en-text">Skip opening &amp; read invite</span>
+          <span class="hi-text font-devanagari text-xs">सीधे निमंत्रण पढ़ें</span>
+        </button>
+      </div>
+
+      <!-- Layer A: Lit Palace Video (Fades in when diya is tapped) -->
+      <!-- Place your Cover-video.mp4 inside an "assets/" folder next to index.html -->
+      <video
+        id="ritualVideo"
+        src="assets/video1.mp4"
+        poster="assets/opening-first.webp"
+        playsinline muted preload="auto"
+        class="absolute inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-700"
+      ></video>
+      <video
+        id="openingVideo"
+        src="assets/Cover-video.mp4"
+        poster="assets/opening-first.webp"
+        playsinline muted loop preload="auto"
+        class="absolute inset-0 w-full h-full object-cover object-center opacity-0 transition-opacity duration-700"
+      ></video>
+
+      <!-- Fallback Lit Palace Glow (If local video isn't loaded yet, still illuminates smoothly) -->
+      <div id="fallbackLitOverlay" class="absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-1000"
+           style="background: radial-gradient(circle at 50% 74%, rgba(255, 196, 92, 0.45) 0%, rgba(212, 138, 42, 0.22) 38%, rgba(13, 13, 18, 0.35) 85%);">
+      </div>
+
+      <!-- Layer B: Initial Unlit Sheesh Mahal Image -->
+      <!-- Place your opening-first.webp inside an "assets/" folder next to index.html -->
+      <div id="unlitCoverLayer" class="absolute inset-0 w-full h-full transition-opacity duration-1000">
+        <img
+          src="assets/opening-first.webp"
+          alt="Sheesh Mahal Palace Archway with Unlit Brass Diya"
+          class="w-full h-full object-cover object-center"
+          loading="eager" fetchpriority="high"
+          onerror="this.style.display='none'; document.getElementById('svgArchFallback').classList.remove('hidden');"
+        />
+
+        <!-- Graceful Vector Fallback if assets/opening-first.webp is not found locally -->
+        <div id="svgArchFallback" class="hidden w-full h-full bg-gradient-to-b from-[#0C1017] via-[#131922] to-[#090B10] flex flex-col items-center justify-between py-16 px-6">
+          <p class="font-cinzel text-xs tracking-[0.3em] text-gold/70 uppercase mt-6">Sheesh Mahal</p>
+          <div class="w-64 h-80 border border-gold/30 rounded-t-full flex items-end justify-center pb-8 relative">
+            <div class="w-16 h-10 rounded-b-full bg-gradient-to-b from-gold to-gold-dark shadow-lg"></div>
+          </div>
+          <div class="h-10"></div>
+        </div>
+
+        <!-- Subtle Dark Vignette for Readability -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/45 pointer-events-none"></div>
+
+        <!-- Pulsing Ring directly over the Brass Diya -->
+        <div class="diya-halo"></div>
+
+        <!-- Invisible Full-Diya Hotspot + Floating Prompt Pill -->
+        <button id="lightDiyaBtn" type="button" aria-label="Tap anywhere to light the diya"
+          class="opening-hitarea group focus:outline-none">
+          <span class="tap-label px-5 py-2.5 rounded-full bg-black/75 backdrop-blur-md border border-gold/60 text-gold-light shadow-[0_0_25px_rgba(223,192,124,0.3)] group-hover:scale-105 group-active:scale-95 transition-transform inline-block">
+            <span class="en-text block font-cinzel text-[11px] tracking-[0.2em] uppercase whitespace-nowrap">Tap anywhere to begin</span>
+            <span class="hi-text block font-devanagari text-xs tracking-wide whitespace-nowrap">दीप प्रज्वलित करने के लिए स्पर्श करें</span>
+          </span>
+        </button>
+      </div>
+
+      <!-- Layer C: Post-Video Scroll Unlock Prompt (Appears ~3s after lighting diya) -->
+      <div
+        id="scrollPromptOverlay"
+        class="absolute bottom-7 inset-x-0 z-30 flex flex-col items-center text-center opacity-0 pointer-events-none transition-opacity duration-1000"
+      >
+        <a
+          href="#paper"
+          class="scroll-cue inline-flex flex-col items-center gap-1.5 px-6 py-2.5 rounded-full bg-black/65 backdrop-blur-md border border-gold/50 text-gold-light shadow-lg"
+        >
+          <span class="en-text font-cinzel text-[11px] tracking-[0.24em] uppercase">
+            Scroll Down to Enter
+          </span>
+          <span class="hi-text font-devanagari text-xs tracking-wider">
+            निमंत्रण देखने के लिए नीचे स्क्रॉल करें
+          </span>
+          <svg class="w-4 h-4 text-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- =================================================================== -->
+    <!-- STAGE 2: MAIN INVITATION PAPER (#paper)                             -->
+    <!-- =================================================================== -->
+    <main id="paper" class="relative z-10 px-3.5 sm:px-5 pt-6 pb-24">
+
+      <!-- ----------------------------------------------------------------- -->
+      <!-- SECTION 1: SCALLOPED MUGHAL ARCH HERO CARD                        -->
+      <!-- ----------------------------------------------------------------- -->
+      <section class="relative pt-6 pb-10 px-4 sm:px-6 text-center">
+        <!-- Intricate Double-Line Scalloped Mughal Arch SVG Frame -->
+        <svg
+          class="pointer-events-none absolute inset-0 w-full h-full"
+          viewBox="0 0 400 760"
+          preserveAspectRatio="none"
+          aria-hidden="true"
+        >
+          <!-- Outer Scalloped Gold Arch -->
+          <path
+            d="M 200 10
+               C 218 28, 248 28, 266 46
+               C 292 46, 314 68, 314 94
+               C 332 112, 332 142, 350 160
+               C 368 178, 368 208, 386 226
+               L 386 746
+               L 14 746
+               L 14 226
+               C 32 208, 32 178, 50 160
+               C 68 142, 68 112, 86 94
+               C 86 68, 108 46, 134 46
+               C 152 28, 182 28, 200 10 Z"
+            fill="rgba(18, 18, 25, 0.65)"
+            stroke="#DFC07C"
+            stroke-width="1.3"
+          />
+          <!-- Inner Mirror-Silver Hairline Arch -->
+          <path
+            d="M 200 20
+               C 216 36, 244 36, 260 52
+               C 284 52, 304 72, 304 96
+               C 320 112, 320 140, 336 156
+               C 352 172, 352 200, 368 216
+               L 368 736
+               L 32 736
+               L 32 216
+               C 48 200, 48 172, 64 156
+               C 80 140, 80 112, 96 96
+               C 96 72, 116 52, 140 52
+               C 156 36, 184 36, 200 20 Z"
+            fill="none"
+            stroke="rgba(223, 192, 124, 0.32)"
+            stroke-width="0.9"
+          />
+        </svg>
+
+        <!-- Hero Arch Inner Content -->
+        <div class="relative z-10 flex flex-col items-center pt-8 sm:pt-10">
+
+          <!-- 1. SMALL LORD GANESHA LOGO ABOVE MONOGRAM -->
+          <!-- Place your Ganesha.png inside assets/Ganesha.png -->
+          <div class="reveal-item w-14 h-14 flex items-center justify-center p-0 mb-3">
+            <img
+              src="assets/Ganesha.png"
+              alt="Lord Ganesha"
+              class="w-full h-full object-contain"
+              
+              onerror="this.parentElement.innerHTML='<span class=\'font-devanagari text-gold-dark text-xl font-bold\'>ॐ</span>'"
+            />
+          </div>
+
+          <!-- 2. COUPLE MONOGRAM MEDALLION (P & P) -->
+          <!-- Place your Monogram Logo.png inside assets/Monogram Logo.png -->
+          <div class="reveal-item w-28 h-28 flex items-center justify-center p-0 mb-4">
+            <img
+              src="assets/Monogram Logo.png"
+              alt="Pooja & Pranav Monogram"
+              class="w-full h-full object-contain"
+              
+              onerror="this.parentElement.innerHTML='<span class=\'font-cinzel text-gold-dark text-xl font-bold\'>P &amp; P</span>'"
+            />
+          </div>
+
+          <!-- 3. SACRED INVOCATION -->
+          <p class="reveal-item font-devanagari text-gold text-sm sm:text-base tracking-wider font-medium">
+            || श्री गणेशाय नमः ||
+          </p>
+
+          <!-- 4. ORNAMENTAL DIVIDER -->
+          <!-- Place your divider.webp inside assets/divider.webp -->
+          <img
+            src="assets/divider.webp"
+            alt=""
+            class="reveal-item w-48 sm:w-52 h-auto mx-auto my-3 opacity-95"
+            onerror="this.style.display='none'"
+          />
+
+          <!-- 5. HEAVENLY BLESSINGS INTRO -->
+          <p class="reveal-item en-text font-serif italic text-[15px] sm:text-base text-cream/90 leading-relaxed max-w-[290px] mx-auto mt-1">
+            With the heavenly blessings of<br />
+            <span class="not-italic font-semibold text-gold-light">Late Devanand Mandal &amp; Late Shyamali Devi</span>,<br />
+            <span class="not-italic font-semibold text-cream">Shri Sadanand Mandal &amp; Smt. Urmila Devi</span><br />
+            cordially invite you to the wedding of
+          </p>
+          <p class="reveal-item hi-text font-devanagari text-xs sm:text-sm text-cream/90 leading-relaxed max-w-[295px] mx-auto mt-1">
+            ईश्वर की असीम अनुकम्पा एवं पूर्वजों के आशीर्वाद से<br />
+            <span class="font-semibold text-gold-light">श्री सदानन्द मंडल एवं श्रीमती उर्मिला देवी</span><br />
+            आपको सादर आमंत्रित करते हैं
+          </p>
+
+          <!-- 6. BRIDE NAME & LINEAGE -->
+          <div class="reveal-item mt-5">
+            <h1 class="en-text gold-shimmer font-script text-[42px] sm:text-[46px] leading-tight py-1">
+              Pooja Kumari
+            </h1>
+            <h1 class="hi-text gold-shimmer font-rozha text-3xl sm:text-4xl leading-tight py-1">
+              आयुष्मति पूजा कुमारी
+            </h1>
+
+            <p class="en-text font-cinzel text-[9.5px] tracking-[0.2em] text-cream-muted uppercase leading-relaxed mt-1 px-2">
+              Daughter of Late Devanand Mandal &amp; Late Shyamali Devi<br />
+              Granddaughter of Late Pechu Mandal &amp; Late Reshmi Devi<br />
+              <span class="text-gold/90">Hardar, Jokihat, Araria (Bihar)</span>
+            </p>
+            <p class="hi-text font-devanagari text-[11px] text-cream-muted leading-relaxed mt-1 px-2">
+              द्वितीय सुपुत्री: स्मृतिशेष देवानन्द मंडल एवं स्मृतिशेष श्यामली देवी<br />
+              पौत्री: स्मृतिशेष पेचू मंडल एवं स्मृतिशेष रेशमी देवी<br />
+              <span class="text-gold">ग्राम-हरदार, जोकीहाट, अररिया (बिहार)</span>
+            </p>
+          </div>
+
+          <!-- Connector -->
+          <p class="reveal-item en-text font-serif italic text-xl text-gold my-2.5">with</p>
+          <p class="reveal-item hi-text font-devanagari text-sm text-gold font-semibold my-2.5">संग</p>
+
+          <!-- 7. GROOM NAME & LINEAGE -->
+          <div class="reveal-item">
+            <h2 class="en-text gold-shimmer font-script text-[42px] sm:text-[46px] leading-tight py-1">
+              Pranav Kumar
+            </h2>
+            <h2 class="hi-text gold-shimmer font-rozha text-3xl sm:text-4xl leading-tight py-1">
+              आयुष्मान् प्रणव कुमार
+            </h2>
+
+            <p class="en-text font-cinzel text-[9.5px] tracking-[0.2em] text-cream-muted uppercase leading-relaxed mt-1 px-2">
+              Son of Shri Narayan Mandal &amp; Smt. Chandrama Devi<br />
+              <span class="text-gold/90">Ramnagar, Pipra, Supaul (Bihar)</span>
+            </p>
+            <p class="hi-text font-devanagari text-[11px] text-cream-muted leading-relaxed mt-1 px-2">
+              द्वितीय सुपुत्र: श्री नारायण मंडल एवं श्रीमती चन्द्रमा देवी<br />
+              <span class="text-gold">ग्राम+पो०-रामनगर, थाना-पिपरा, सुपौल (बिहार)</span>
+            </p>
+          </div>
+
+          <!-- 8. MAIN DATE & LOCATION HIGHLIGHT -->
+          <div class="reveal-item mt-6 pt-4 border-t border-gold/25 w-4/5 mx-auto">
+            <p class="en-text font-serif text-base sm:text-lg text-cream font-medium">
+              Friday, 4th December 2026
+            </p>
+            <p class="hi-text font-devanagari text-sm sm:text-base text-cream font-semibold">
+              शुक्रवार, 04 दिसम्बर 2026
+            </p>
+            <p class="en-text font-serif italic text-sm text-cream-muted mt-0.5">
+              Village Hardar, Jokihat, Araria (Bihar)
+            </p>
+            <p class="hi-text font-devanagari text-xs text-cream-muted mt-0.5">
+              ग्राम-हरदार, जोकीहाट, जिला-अररिया (बिहार)
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- THE DATE: dedicated scroll-reveal section -->
+      <section id="the-date" class="reveal-item mt-8 px-2">
+        <div class="date-panel rounded-[28px] px-5 py-7 text-center relative overflow-hidden">
+          <p class="font-cinzel text-[10px] tracking-[0.32em] text-gold uppercase">Save the date</p>
+          <h2 class="gold-shimmer font-script text-5xl mt-2">The Date</h2>
+          <img src="assets/divider.webp" alt="" class="w-44 h-auto mx-auto my-3 opacity-90" />
+          <p class="font-cinzel text-[11px] tracking-[0.22em] text-cream-muted uppercase">Thursday & Friday</p>
+          <p class="font-serif text-3xl text-cream mt-1">03 — 04 December</p>
+          <p class="font-cinzel text-sm tracking-[0.28em] text-gold mt-1">2026</p>
+          <div class="w-16 h-px bg-gold/50 mx-auto my-4"></div>
+          <p class="font-serif italic text-base text-cream-muted">Two days of traditions, blessings & togetherness</p>
+          <p class="font-devanagari text-sm text-gold mt-2">शुभ विवाह • ०४ दिसम्बर २०२६</p>
+        </div>
+      </section>
+
+      <!-- ----------------------------------------------------------------- -->
+      <!-- SECTION 2: THE CELEBRATIONS (ALTERNATING MIRROR-ARCH TIMELINE)    -->
+      <!-- ----------------------------------------------------------------- -->
+      <section id="celebrations" class="mt-12 pt-4">
+        <div class="reveal-item text-center mb-8">
+          <h2 class="en-text gold-shimmer font-script text-4xl sm:text-[42px] leading-tight">
+            The celebrations
+          </h2>
+          <h2 class="hi-text gold-shimmer font-rozha text-3xl leading-tight">
+            मांगलिक कार्यक्रम
+          </h2>
+          <img
+            src="assets/divider.webp"
+            alt=""
+            class="w-48 h-auto mx-auto mt-2 opacity-95"
+            onerror="this.style.display='none'"
+          />
+        </div>
+
+        <!-- Central Vertical Gold Timeline Spine -->
+        <div class="relative max-w-[390px] mx-auto py-2">
+          <!-- Vertical Gold Line -->
+          <div class="absolute left-1/2 top-4 bottom-4 -translate-x-1/2 w-px bg-gradient-to-b from-transparent via-gold/60 to-transparent"></div>
+
+          <!-- MILESTONE 1: PUJA, HALDI & MEHENDI (Image Left, Text Right) -->
+          <div class="reveal-item relative grid grid-cols-2 gap-4 items-center mb-12">
+            <!-- Center Diamond Node -->
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rotate-45 bg-obsidian-900 border border-gold z-10"></div>
+
+            <!-- Left Mirror Arch Illustration -->
+            <div class="pr-3 flex justify-center">
+              <img
+                src="assets/fn-mehendi.webp"
+                alt="Puja, Haldi and Mehendi Ceremony"
+                class="w-36 sm:w-40 h-auto object-contain drop-shadow-[0_10px_22px_rgba(0,0,0,0.75)] hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+
+            <!-- Right Event Details -->
+            <div class="pl-3 text-left">
+              <p class="en-text font-cinzel text-[10px] tracking-[0.2em] text-cream-muted uppercase">
+                Thu, 03 Dec
+              </p>
+              <p class="hi-text font-devanagari text-[11px] text-cream-muted">
+                गुरुवार, 03 दिसम्बर
+              </p>
+
+              <p class="en-text font-script text-2xl text-[#A8C686] leading-none mt-1">
+                Morning &amp; Eve
+              </p>
+              <p class="hi-text font-devanagari text-xs text-[#A8C686] mt-1">
+                प्रातः एवं संध्या
+              </p>
+
+              <h3 class="en-text font-serif text-xl font-semibold text-cream leading-snug mt-0.5">
+                Puja, Haldi &amp; Mehendi
+              </h3>
+              <h3 class="hi-text font-devanagari text-base font-bold text-cream leading-snug mt-0.5">
+                पूजा, हल्दी एवं मेहंदी
+              </h3>
+
+              <p class="font-devanagari text-xs text-gold/90 mt-0.5">
+                सत्यनारायण पूजा एवं रात्रि भोज
+              </p>
+              <p class="en-text font-serif italic text-xs text-cream-muted mt-1 leading-snug">
+                Satyanarayan Puja Katha &amp; celebratory dinner
+              </p>
+
+              <button
+                type="button"
+                data-event="puja"
+                class="add-cal-btn mt-2 inline-block font-serif italic text-xs text-gold underline underline-offset-4 hover:text-gold-light cursor-pointer"
+              >
+                <span class="en-text">Add to calendar</span>
+                <span class="hi-text font-devanagari not-italic">कैलेंडर में जोड़ें</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- MILESTONE 2: BARAAT & PRITI BHOJ (Text Left, Image Right) -->
+          <div class="reveal-item relative grid grid-cols-2 gap-4 items-center mb-12">
+            <!-- Center Diamond Node -->
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rotate-45 bg-obsidian-900 border border-gold z-10"></div>
+
+            <!-- Left Event Details -->
+            <div class="pr-3 text-right">
+              <p class="en-text font-cinzel text-[10px] tracking-[0.2em] text-cream-muted uppercase">
+                Fri, 04 Dec
+              </p>
+              <p class="hi-text font-devanagari text-[11px] text-cream-muted">
+                शुक्रवार, 04 दिसम्बर
+              </p>
+
+              <p class="en-text font-script text-2xl text-[#C3A6D8] leading-none mt-1">
+                1:00 pm onwards
+              </p>
+              <p class="hi-text font-devanagari text-xs text-[#C3A6D8] mt-1">
+                दोपहर 1:00 बजे से
+              </p>
+
+              <h3 class="en-text font-serif text-xl font-semibold text-cream leading-snug mt-0.5">
+                Baraat &amp; Priti Bhoj
+              </h3>
+              <h3 class="hi-text font-devanagari text-base font-bold text-cream leading-snug mt-0.5">
+                बारात एवं प्रीति भोज
+              </h3>
+
+              <p class="font-devanagari text-xs text-gold/90 mt-0.5">
+                स्वागत एवं प्रीति भोज
+              </p>
+              <p class="en-text font-serif italic text-xs text-cream-muted mt-1 leading-snug">
+                Royal feast &amp; musical welcome of the Baraat
+              </p>
+
+              <button
+                type="button"
+                data-event="baraat"
+                class="add-cal-btn mt-2 inline-block font-serif italic text-xs text-gold underline underline-offset-4 hover:text-gold-light cursor-pointer"
+              >
+                <span class="en-text">Add to calendar</span>
+                <span class="hi-text font-devanagari not-italic">कैलेंडर में जोड़ें</span>
+              </button>
+            </div>
+
+            <!-- Right Mirror Arch Illustration -->
+            <div class="pl-3 flex justify-center">
+              <img
+                src="assets/fn-sangeet.webp"
+                alt="Baraat and Musical Celebrations"
+                class="w-36 sm:w-40 h-auto object-contain drop-shadow-[0_10px_22px_rgba(0,0,0,0.75)] hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          </div>
+
+          <!-- MILESTONE 3: SHUBH VIVAH (Image Left, Text Right) -->
+          <div class="reveal-item relative grid grid-cols-2 gap-4 items-center">
+            <!-- Center Diamond Node -->
+            <div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 rotate-45 bg-obsidian-900 border border-gold z-10"></div>
+
+            <!-- Left Mirror Arch Illustration -->
+            <div class="pr-3 flex justify-center">
+              <img
+                src="assets/fn-wedding.webp"
+                alt="Shubh Vivah Mandap Ceremony"
+                class="w-36 sm:w-40 h-auto object-contain drop-shadow-[0_10px_22px_rgba(0,0,0,0.75)] hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+
+            <!-- Right Event Details -->
+            <div class="pl-3 text-left">
+              <p class="en-text font-cinzel text-[10px] tracking-[0.2em] text-cream-muted uppercase">
+                Fri, 04 Dec
+              </p>
+              <p class="hi-text font-devanagari text-[11px] text-cream-muted">
+                शुक्रवार, 04 दिसम्बर
+              </p>
+
+              <p class="en-text font-script text-2xl text-[#E39B7E] leading-none mt-1">
+                Night Muhurat
+              </p>
+              <p class="hi-text font-devanagari text-xs text-[#E39B7E] mt-1">
+                रात्रि शुभ बेला
+              </p>
+
+              <h3 class="en-text font-serif text-xl font-semibold text-cream leading-snug mt-0.5">
+                Shubh Vivah
+              </h3>
+              <h3 class="hi-text font-devanagari text-base font-bold text-cream leading-snug mt-0.5">
+                शुभ विवाह
+              </h3>
+
+              <p class="font-devanagari text-xs text-gold/90 mt-0.5">
+                पाणिग्रहण एवं सप्तपदी
+              </p>
+              <p class="en-text font-serif italic text-xs text-cream-muted mt-1 leading-snug">
+                Sacred Vedic vows beneath the floral mandap
+              </p>
+
+              <button
+                type="button"
+                data-event="wedding"
+                class="add-cal-btn mt-2 inline-block font-serif italic text-xs text-gold underline underline-offset-4 hover:text-gold-light cursor-pointer"
+              >
+                <span class="en-text">Add to calendar</span>
+                <span class="hi-text font-devanagari not-italic">कैलेंडर में जोड़ें</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Section Closing Script -->
+        <div class="reveal-item text-center mt-12">
+          <p class="en-text gold-shimmer font-script text-3xl sm:text-4xl">
+            The celebration begins
+          </p>
+          <p class="hi-text gold-shimmer font-rozha text-2xl">
+            मांगलिक उत्सव का शुभारंभ
+          </p>
+          <img
+            src="assets/divider.webp"
+            alt=""
+            class="w-44 h-auto mx-auto mt-2 opacity-90"
+            onerror="this.style.display='none'"
+          />
+        </div>
+      </section>
+
+
+      <!-- MEHENDI SCROLL VIDEO: replace assets/mehendi-scroll.mp4 with the final clip -->
+      <section id="mehendi-film" class="reveal-item mt-14">
+        <div class="text-center mb-4">
+          <p class="font-cinzel text-[10px] tracking-[0.28em] text-gold uppercase">A little glimpse</p>
+          <h2 class="gold-shimmer font-script text-4xl mt-1">The Mehendi Moments</h2>
+          <p class="font-serif italic text-sm text-cream-muted mt-1">Scroll gently to unfold the celebration</p>
+        </div>
+        <div class="mehendi-stage" id="mehendiStage">
+          <div class="mehendi-sticky">
+            <video id="mehendiScrollVideo" src="assets/mehendi-scroll.mp4" poster="assets/fn-mehendi.webp"
+              playsinline muted preload="auto"></video>
+            <div class="mehendi-shade"></div>
+            <div class="mehendi-caption">
+              <p class="font-cinzel text-[10px] tracking-[0.28em] text-gold uppercase">Pooja & Pranav</p>
+              <p class="font-script text-4xl text-cream">Mehendi ki Raat</p>
+              <div class="mehendi-progress"><span id="mehendiProgress"></span></div>
+              <p id="mehendiHint" class="font-sans text-[9px] tracking-[0.2em] text-cream/70 uppercase mt-2">Scroll to play</p>
+            </div>
+            <div id="mehendiVideoFallback" class="absolute inset-0 -z-0 flex items-center justify-center text-center p-8 bg-obsidian-950">
+              <div><p class="font-script text-4xl text-gold">Mehendi Moments</p><p class="font-serif text-sm text-cream-muted mt-2">Add your mehendi scroll video as <b>mehendi-scroll.mp4</b> in the assets folder.</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- COUPLE PHOTO CAROUSEL: replace the three placeholder panels with photos -->
+      <section id="couple-gallery" class="reveal-item mt-14">
+        <div class="text-center mb-5">
+          <p class="font-cinzel text-[10px] tracking-[0.28em] text-gold uppercase">Together, a new chapter</p>
+          <h2 class="gold-shimmer font-script text-4xl mt-1">Pooja & Pranav</h2>
+          <p class="font-serif italic text-sm text-cream-muted mt-1">A few moments to cherish</p>
+        </div>
+        <div class="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-3 px-1" aria-label="Couple photo gallery">
+          <div class="photo-placeholder min-w-[78%] snap-center" style="background-image:linear-gradient(rgba(8,8,12,.25),rgba(8,8,12,.5)),url('assets/couple-1.jpg');background-size:cover;background-position:center"><span>COUPLE PHOTO 01<br><small class="tracking-normal">Replace with couple-1.jpg</small></span></div>
+          <div class="photo-placeholder min-w-[78%] snap-center" style="background-image:linear-gradient(rgba(8,8,12,.25),rgba(8,8,12,.5)),url('assets/couple-2.jpg');background-size:cover;background-position:center"><span>COUPLE PHOTO 02<br><small class="tracking-normal">Replace with couple-2.jpg</small></span></div>
+          <div class="photo-placeholder min-w-[78%] snap-center" style="background-image:linear-gradient(rgba(8,8,12,.25),rgba(8,8,12,.5)),url('assets/couple-3.jpg');background-size:cover;background-position:center"><span>COUPLE PHOTO 03<br><small class="tracking-normal">Replace with couple-3.jpg</small></span></div>
+        </div>
+        <p class="text-center font-sans text-[9px] tracking-[0.18em] text-cream-muted uppercase mt-1">Swipe to view • 1 / 3</p>
+      </section>
+
+      <!-- OUR FAMILIES -->
+      <section id="our-families" class="reveal-item mt-14">
+        <div class="text-center mb-6">
+          <p class="font-cinzel text-[10px] tracking-[0.28em] text-gold uppercase">Two families, one celebration</p>
+          <h2 class="gold-shimmer font-script text-4xl mt-1">Our Families</h2>
+          <img src="assets/divider.webp" alt="" class="w-44 h-auto mx-auto mt-2 opacity-90" />
+        </div>
+        <div class="family-panel rounded-2xl p-5 text-center mb-4">
+          <p class="font-cinzel text-[10px] tracking-[0.22em] text-gold uppercase">The Bride's Family</p>
+          <h3 class="font-serif text-2xl text-cream mt-2">Pooja Kumari</h3>
+          <p class="font-serif text-sm text-cream-muted mt-3 leading-relaxed">
+            Daughter of<br><strong class="text-cream font-medium">Late Devanand Mandal &amp; Late Shyamali Devi</strong>
+          </p>
+          <p class="font-serif text-sm text-cream-muted mt-3 leading-relaxed">
+            Granddaughter of<br><strong class="text-cream font-medium">Late Pechu Mandal &amp; Late Reshmi Devi</strong>
+          </p>
+          <p class="font-cinzel text-[10px] tracking-[0.16em] text-gold mt-4">Hardar, Jokihat, Araria (Bihar)</p>
+        </div>
+        <div class="family-panel rounded-2xl p-5 text-center">
+          <p class="font-cinzel text-[10px] tracking-[0.22em] text-gold uppercase">The Groom's Family</p>
+          <h3 class="font-serif text-2xl text-cream mt-2">Pranav Kumar</h3>
+          <p class="font-serif text-sm text-cream-muted mt-3 leading-relaxed">
+            Son of<br><strong class="text-cream font-medium">Shri Narayan Mandal &amp; Smt. Chandrama Devi</strong>
+          </p>
+          <p class="font-cinzel text-[10px] tracking-[0.16em] text-gold mt-4">Ramnagar, Pipra, Supaul (Bihar)</p>
+        </div>
+      </section>
+
+      <!-- ----------------------------------------------------------------- -->
+      <!-- SECTION 4: LIVE COUNTDOWN, VENUE & WHATSAPP RSVP                  -->
+      <!-- ----------------------------------------------------------------- -->
+      <section class="reveal-item mt-10 space-y-8">
+
+        <!-- Live Countdown to Dec 4, 2026 -->
+        <div class="rounded-2xl bg-obsidian-800/70 border border-gold/30 p-5 text-center backdrop-blur-sm">
+          <p class="en-text font-cinzel text-[10px] tracking-[0.26em] text-gold uppercase mb-3.5">
+            Counting Down to Shubh Vivah
+          </p>
+          <p class="hi-text font-devanagari text-xs text-gold mb-3.5">
+            शुभ विवाह में शेष समय
+          </p>
+          <div class="grid grid-cols-4 gap-2.5">
+            <div class="rounded-xl bg-obsidian-950/80 border border-gold/25 py-2.5">
+              <div id="cdDays" class="font-cinzel text-xl font-semibold text-gold-light">00</div>
+              <div class="en-text font-sans text-[9px] tracking-[0.18em] text-cream-muted uppercase mt-0.5">Days</div>
+              <div class="hi-text font-devanagari text-[10px] text-cream-muted">दिन</div>
+            </div>
+            <div class="rounded-xl bg-obsidian-950/80 border border-gold/25 py-2.5">
+              <div id="cdHours" class="font-cinzel text-xl font-semibold text-gold-light">00</div>
+              <div class="en-text font-sans text-[9px] tracking-[0.18em] text-cream-muted uppercase mt-0.5">Hrs</div>
+              <div class="hi-text font-devanagari text-[10px] text-cream-muted">घंटे</div>
+            </div>
+            <div class="rounded-xl bg-obsidian-950/80 border border-gold/25 py-2.5">
+              <div id="cdMinutes" class="font-cinzel text-xl font-semibold text-gold-light">00</div>
+              <div class="en-text font-sans text-[9px] tracking-[0.18em] text-cream-muted uppercase mt-0.5">Min</div>
+              <div class="hi-text font-devanagari text-[10px] text-cream-muted">मिनट</div>
+            </div>
+            <div class="rounded-xl bg-obsidian-950/80 border border-gold/25 py-2.5">
+              <div id="cdSeconds" class="font-cinzel text-xl font-semibold text-gold">00</div>
+              <div class="en-text font-sans text-[9px] tracking-[0.18em] text-cream-muted uppercase mt-0.5">Sec</div>
+              <div class="hi-text font-devanagari text-[10px] text-cream-muted">सेकंड</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Venue & Warm Regards (Aakankshi) Card -->
+        <div class="rounded-2xl bg-obsidian-800/70 border border-gold/35 p-6 text-center backdrop-blur-sm">
+          <span class="en-text font-cinzel text-[10px] tracking-[0.25em] text-gold uppercase">
+            Venue &amp; Directions
+          </span>
+          <span class="hi-text font-devanagari text-xs text-gold">
+            विवाह स्थल
+          </span>
+
+          <h3 class="en-text font-serif text-2xl text-cream font-semibold mt-1">
+            Hardar, Jokihat
+          </h3>
+          <h3 class="hi-text font-rozha text-2xl text-cream mt-1">
+            ग्राम-हरदार, जोकीहाट
+          </h3>
+
+          <p class="en-text font-serif text-sm text-cream-muted leading-relaxed mt-1.5">
+            Village Hardar, Ward No. 03, Post Jokihat,<br />
+            District Araria, Bihar
+          </p>
+          <p class="hi-text font-devanagari text-xs text-cream-muted leading-relaxed mt-1.5">
+            ग्राम-हरदार, वार्ड नं०-03, पोस्ट-जोकीहाट,<br />
+            जिला-अररिया (बिहार)
+          </p>
+
+          <a
+            href="https://maps.app.goo.gl/fCPNdey3irJ8qvbbA"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-4 inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gold/70 bg-gold/10 hover:bg-gold hover:text-obsidian-950 text-gold-light text-xs font-cinzel tracking-[0.16em] uppercase transition-all"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            <span class="en-text">Open in Google Maps</span>
+            <span class="hi-text font-devanagari text-xs">गूगल मैप पर देखें</span>
+          </a>
+
+          <!-- Hosts (Aakankshi) -->
+          <div class="mt-6 pt-5 border-t border-gold/20">
+            <p class="en-text font-cinzel text-[10px] tracking-[0.24em] text-gold uppercase">
+              With Warm Regards (Aakankshi)
+            </p>
+            <p class="hi-text font-devanagari text-xs text-gold">
+              आकांक्षी एवं विनीत
+            </p>
+            <p class="en-text font-serif text-base text-cream font-semibold mt-1.5">
+              Shri Sadanand Mandal <span class="text-xs font-normal text-cream-muted">(Retd. Police Inspector)</span><br />
+              &amp; Smt. Urmila Devi
+            </p>
+            <p class="hi-text font-devanagari text-sm text-cream font-semibold mt-1.5">
+              श्री सदानन्द मंडल (सेवानिवृत्त पुलिस निरीक्षक)<br />
+              एवं श्रीमती उर्मिला देवी
+            </p>
+            <p class="en-text font-serif italic text-xs text-cream-muted mt-1">
+              And the entire Mandal Family • +91 99317 57868 | +91 79033 37572
+            </p>
+            <p class="hi-text font-devanagari text-[11px] text-cream-muted mt-1">
+              एवं समस्त मंडल परिवार • 9931757868, 7903337572
+            </p>
+          </div>
+        </div>
+
+        <!-- Compact WhatsApp RSVP Card -->
+        <div class="rounded-2xl bg-obsidian-800/70 border border-gold/35 p-6 backdrop-blur-sm">
+          <div class="text-center mb-4">
+            <h3 class="en-text gold-shimmer font-script text-3xl">
+              Kindly Reply
+            </h3>
+            <h3 class="hi-text gold-shimmer font-rozha text-2xl">
+              कृपया अपनी उपस्थिति सूचित करें
+            </h3>
+            <p class="en-text font-serif italic text-xs text-cream-muted">
+              Send your wishes &amp; attendance directly on WhatsApp • +91 70040 71495
+            </p>
+            <p class="hi-text font-devanagari text-[11px] text-cream-muted">
+              व्हाट्सएप पर सीधा संदेश भेजें
+            </p>
+          </div>
+
+          <form id="rsvpForm" class="space-y-3.5">
+            <!-- Guest Name -->
+            <div>
+              <input
+                type="text"
+                id="guestNameInput"
+                required
+                placeholder="Your Full Name / आपका नाम"
+                class="w-full px-4 py-2.5 rounded-xl bg-obsidian-950/90 border border-gold/35 text-sm font-serif text-cream placeholder:text-cream-muted/50 focus:outline-none focus:border-gold"
+              />
+            </div>
+
+            <!-- Attendance Toggle -->
+            <div class="grid grid-cols-2 gap-2">
+              <button
+                type="button"
+                data-status="Joyfully Attending"
+                class="rsvp-status-btn active px-3 py-2 rounded-xl border border-gold bg-gold/20 text-gold-light text-xs font-serif transition-all cursor-pointer"
+              >
+                <span class="en-text">✨ Joyfully Attending</span>
+                <span class="hi-text font-devanagari">✨ सादर उपस्थित रहेंगे</span>
+              </button>
+              <button
+                type="button"
+                data-status="Sending Warm Blessings"
+                class="rsvp-status-btn px-3 py-2 rounded-xl border border-gold/30 bg-obsidian-950/70 text-cream-muted text-xs font-serif transition-all cursor-pointer"
+              >
+                <span class="en-text">🙏 Sending Blessings</span>
+                <span class="hi-text font-devanagari">🙏 शुभकामनाएं भेज रहे हैं</span>
+              </button>
+            </div>
+
+            <!-- Number of Guests -->
+            <div class="flex items-center justify-between px-3.5 py-2 rounded-xl bg-obsidian-950/80 border border-gold/30">
+              <span class="en-text font-serif text-xs text-cream-muted">Number of Guests</span>
+              <span class="hi-text font-devanagari text-xs text-cream-muted">अतिथियों की संख्या</span>
+              <div class="flex items-center gap-1.5" id="guestCountGroup">
+                <button type="button" data-count="1" class="count-btn w-7 h-7 rounded-lg border border-gold/30 text-xs font-cinzel text-cream-muted hover:border-gold cursor-pointer">1</button>
+                <button type="button" data-count="2" class="count-btn active w-7 h-7 rounded-lg border border-gold bg-gold text-obsidian-950 text-xs font-cinzel font-bold cursor-pointer">2</button>
+                <button type="button" data-count="3" class="count-btn w-7 h-7 rounded-lg border border-gold/30 text-xs font-cinzel text-cream-muted hover:border-gold cursor-pointer">3</button>
+                <button type="button" data-count="4" class="count-btn w-7 h-7 rounded-lg border border-gold/30 text-xs font-cinzel text-cream-muted hover:border-gold cursor-pointer">4</button>
+                <button type="button" data-count="5+" class="count-btn w-7 h-7 rounded-lg border border-gold/30 text-xs font-cinzel text-cream-muted hover:border-gold cursor-pointer">5+</button>
+              </div>
+            </div>
+
+            <!-- Submit to WhatsApp -->
+            <button
+              type="submit"
+              class="w-full py-3 rounded-full bg-gradient-to-r from-[#B38E43] via-[#DFC07C] to-[#B38E43] text-obsidian-950 font-cinzel text-xs font-bold tracking-[0.18em] uppercase shadow-[0_8px_25px_rgba(223,192,124,0.28)] hover:brightness-105 active:scale-[0.99] transition-all cursor-pointer"
+            >
+              <span class="en-text">Send RSVP on WhatsApp</span>
+              <span class="hi-text font-devanagari text-xs">व्हाट्सएप पर उत्तर भेजें</span>
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="mt-12 text-center">
+        <p class="en-text font-serif italic text-sm text-cream-muted">
+          We eagerly await your presence to bless the couple.
+        </p>
+        <p class="hi-text font-devanagari text-xs text-cream-muted">
+          आपकी गरिमामयी उपस्थिति की प्रतीक्षा में।
+        </p>
+        <p class="font-cinzel text-[10px] tracking-[0.26em] text-gold/75 uppercase mt-2">
+          #PoojaWedsPranav • 04.12.2026
+        </p>
+      </footer>
+    </main>
+
+    <!-- =================================================================== -->
+    <!-- FLOATING BOTTOM-RIGHT CONTROLS (MATCHING REFERENCE SCREENSHOT)      -->
+    <!-- =================================================================== -->
+    <div id="floatingControls" class="fixed bottom-5 right-4 sm:right-[calc(50%-204px)] z-50 flex flex-col items-center gap-2.5 opacity-0 pointer-events-none transition-opacity duration-700">
+      <!-- Bilingual Toggle Pill (हिं / EN) -->
+      <button
+        id="langSwitchBtn"
+        type="button"
+        aria-label="Toggle Hindi and English"
+        class="w-11 h-8 rounded-full bg-[#14141A]/90 backdrop-blur-md border border-gold/45 text-gold-light font-devanagari text-xs font-semibold shadow-lg hover:border-gold active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+      >
+        <span id="langSwitchText">हिं</span>
+      </button>
+
+      <!-- Circular Brushed-Gold Audio Play/Pause Button -->
+      <button
+        id="audioControlBtn"
+        type="button"
+        aria-label="Play or Pause Ambient Music"
+        class="w-12 h-12 rounded-full bg-gradient-to-br from-[#F2DC9F] via-[#DFC07C] to-[#B38E43] text-obsidian-950 shadow-[0_8px_24px_rgba(0,0,0,0.65)] hover:brightness-105 active:scale-95 transition-all cursor-pointer flex items-center justify-center"
+      >
+        <!-- Play Icon -->
+        <svg id="iconAudioPlay" class="w-5 h-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+        <!-- Pause Icon -->
+        <svg id="iconAudioPause" class="w-5 h-5 hidden" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Non-Intrusive Toast Notification -->
+  <div id="toastMsg" class="fixed top-5 left-1/2 -translate-x-1/2 z-50 px-5 py-2 rounded-full bg-obsidian-800 border border-gold/60 text-gold-light font-serif text-xs tracking-wide shadow-2xl opacity-0 pointer-events-none transition-opacity duration-300">
+    Added to calendar
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- INTERACTIVE SCRIPT: DIYA RITUAL, VIDEO UNLOCK, AUDIO, RSVP & SPARKLES -->
+  <!-- ===================================================================== -->
+  <script>
+    (function () {
+      const appBody = document.getElementById('appBody');
+      const lightDiyaBtn = document.getElementById('lightDiyaBtn');
+      const skipOpeningBtn = document.getElementById('skipOpeningBtn');
+      const unlitCoverLayer = document.getElementById('unlitCoverLayer');
+      const openingVideo = document.getElementById('openingVideo');
+      const ritualVideo = document.getElementById('ritualVideo');
+      const fallbackLitOverlay = document.getElementById('fallbackLitOverlay');
+      const scrollPromptOverlay = document.getElementById('scrollPromptOverlay');
+      const floatingControls = document.getElementById('floatingControls');
+      const langSwitchBtn = document.getElementById('langSwitchBtn');
+      const langSwitchText = document.getElementById('langSwitchText');
+      const audioControlBtn = document.getElementById('audioControlBtn');
+      const iconAudioPlay = document.getElementById('iconAudioPlay');
+      const iconAudioPause = document.getElementById('iconAudioPause');
+      const toastMsg = document.getElementById('toastMsg');
+
+      let ritualTriggered = false;
+      let currentLang = 'en';
+
+      // -------------------------------------------------------------------
+      // 1. SYNTHESIZED WEB AUDIO: TEMPLE CHIME + AMBIENT TANPURA SOUNDSCAPE
+      // -------------------------------------------------------------------
+      let audioCtx = null;
+      let masterGain = null;
+      let isAudioPlaying = false;
+      let chimeTimer = null;
+
+      function playBellChime(ctx, destination) {
+        const now = ctx.currentTime;
+        const freqs = [1046.5, 1567.98, 2093.0]; // C6, G6, C7 temple bell overtones
+        freqs.forEach((f, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(f, now);
+          gain.gain.setValueAtTime(0.0001, now);
+          gain.gain.exponentialRampToValueAtTime(0.09 / (idx + 1), now + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 2.6);
+          osc.connect(gain);
+          gain.connect(destination);
+          osc.start(now);
+          osc.stop(now + 2.7);
+        });
+      }
+
+      function enableAmbientMusic() {
+        try {
+          if (!audioCtx) {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            audioCtx = new AudioContext();
+            masterGain = audioCtx.createGain();
+            masterGain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+            masterGain.connect(audioCtx.destination);
+
+            // Warm Indian Tanpura Drone (Sa - Pa - Sa)
+            [146.83, 220.0, 293.66].forEach((freq, i) => {
+              const osc = audioCtx.createOscillator();
+              const filter = audioCtx.createBiquadFilter();
+              const g = audioCtx.createGain();
+              osc.type = i === 1 ? 'triangle' : 'sine';
+              osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+              filter.type = 'lowpass';
+              filter.frequency.setValueAtTime(480, audioCtx.currentTime);
+              g.gain.setValueAtTime(i === 0 ? 0.07 : 0.04, audioCtx.currentTime);
+              osc.connect(filter);
+              filter.connect(g);
+              g.connect(masterGain);
+              osc.start();
+            });
+
+            // Soft Raag Yaman Sitar/Chime Notes
+            const notes = [587.33, 659.25, 739.99, 880.0, 987.77, 1174.66];
+            chimeTimer = setInterval(() => {
+              if (!isAudioPlaying || !audioCtx) return;
+              const now = audioCtx.currentTime;
+              const n = notes[Math.floor(Math.random() * notes.length)];
+              const osc = audioCtx.createOscillator();
+              const g = audioCtx.createGain();
+              osc.type = 'sine';
+              osc.frequency.setValueAtTime(n, now);
+              g.gain.setValueAtTime(0.0001, now);
+              g.gain.exponentialRampToValueAtTime(0.04, now + 0.05);
+              g.gain.exponentialRampToValueAtTime(0.0001, now + 3.0);
+              osc.connect(g);
+              g.connect(masterGain);
+              osc.start(now);
+              osc.stop(now + 3.1);
+            }, 3200);
+          }
+
+          if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+
+          playBellChime(audioCtx, masterGain);
+          masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
+          masterGain.gain.exponentialRampToValueAtTime(0.7, audioCtx.currentTime + 1.2);
+
+          isAudioPlaying = true;
+          iconAudioPlay.classList.add('hidden');
+          iconAudioPause.classList.remove('hidden');
+        } catch (err) {
+          console.warn('Audio init skipped:', err);
+        }
+      }
+
+      function pauseAmbientMusic() {
+        if (audioCtx && masterGain) {
+          masterGain.gain.cancelScheduledValues(audioCtx.currentTime);
+          masterGain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 0.6);
+        }
+        isAudioPlaying = false;
+        iconAudioPause.classList.add('hidden');
+        iconAudioPlay.classList.remove('hidden');
+      }
+
+      audioControlBtn.addEventListener('click', () => {
+        if (isAudioPlaying) {
+          pauseAmbientMusic();
+        } else {
+          enableAmbientMusic();
+        }
+      });
+
+      // -------------------------------------------------------------------
+      // 2. DIYA LIGHTING RITUAL -> PLAY COVER VIDEO -> UNLOCK SCROLLING
+      // -------------------------------------------------------------------
+      function unlockScrollAndShowCue() {
+        appBody.classList.remove('scroll-locked');
+        scrollPromptOverlay.classList.remove('opacity-0', 'pointer-events-none');
+        scrollPromptOverlay.classList.add('opacity-100');
+        floatingControls.classList.remove('opacity-0', 'pointer-events-none');
+        floatingControls.classList.add('opacity-100');
+      }
+
+      function startDiyaRitual() {
+        if (ritualTriggered) return;
+        ritualTriggered = true;
+        enableAmbientMusic();
+        unlitCoverLayer.classList.add('opacity-0', 'pointer-events-none');
+        ritualVideo.classList.remove('opacity-0');
+        ritualVideo.classList.add('opacity-100');
+
+        let completed = false;
+        const beginLoopingCover = () => {
+          if (completed) return;
+          completed = true;
+          ritualVideo.pause();
+          ritualVideo.classList.add('opacity-0');
+          openingVideo.classList.remove('opacity-0');
+          openingVideo.classList.add('opacity-100');
+          openingVideo.currentTime = 0;
+          openingVideo.play().catch(() => {
+            fallbackLitOverlay.classList.remove('opacity-0');
+            fallbackLitOverlay.classList.add('opacity-100');
+          });
+          unlockScrollAndShowCue();
+        };
+        ritualVideo.addEventListener('ended', beginLoopingCover, { once: true });
+        ritualVideo.play().catch(() => {
+          fallbackLitOverlay.classList.remove('opacity-0');
+          fallbackLitOverlay.classList.add('opacity-100');
+          beginLoopingCover();
+        });
+      }
+      lightDiyaBtn.addEventListener('click', startDiyaRitual);
+
+      // Skip button immediately unlocks scrolling and jumps smoothly to #paper
+      skipOpeningBtn.addEventListener('click', () => {
+        ritualTriggered = true;
+        unlitCoverLayer.classList.add('opacity-0', 'pointer-events-none');
+        ritualVideo.pause();
+        ritualVideo.classList.add('opacity-0');
+        openingVideo.classList.remove('opacity-0');
+        openingVideo.classList.add('opacity-100');
+        openingVideo.play().catch(() => {});
+        unlockScrollAndShowCue();
+        document.getElementById('paper').scrollIntoView({ behavior: 'smooth' });
+      });
+
+      // -------------------------------------------------------------------
+      // 3. BILINGUAL SWITCH (ENGLISH <-> हिन्दी)
+      // -------------------------------------------------------------------
+      langSwitchBtn.addEventListener('click', () => {
+        if (currentLang === 'en') {
+          currentLang = 'hi';
+          appBody.classList.remove('lang-en');
+          appBody.classList.add('lang-hi');
+          langSwitchText.textContent = 'EN';
+        } else {
+          currentLang = 'en';
+          appBody.classList.remove('lang-hi');
+          appBody.classList.add('lang-en');
+          langSwitchText.textContent = 'हिं';
+        }
+      });
+
+      // -------------------------------------------------------------------
+      // 4. LIVE COUNTDOWN TIMER (DECEMBER 4, 2026 AT 7:00 PM IST)
+      // -------------------------------------------------------------------
+      const targetTime = new Date('2026-12-04T19:00:00+05:30').getTime();
+
+      function tickCountdown() {
+        const diff = targetTime - Date.now();
+        if (diff <= 0) return;
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const m = Math.floor((diff / (1000 * 60)) % 60);
+        const s = Math.floor((diff / 1000) % 60);
+
+        document.getElementById('cdDays').textContent = String(d).padStart(2, '0');
+        document.getElementById('cdHours').textContent = String(h).padStart(2, '0');
+        document.getElementById('cdMinutes').textContent = String(m).padStart(2, '0');
+        document.getElementById('cdSeconds').textContent = String(s).padStart(2, '0');
+      }
+
+      tickCountdown();
+      setInterval(tickCountdown, 1000);
+
+      // -------------------------------------------------------------------
+      // 5. ADD TO CALENDAR (.ICS DOWNLOAD FOR EACH FUNCTION)
+      // -------------------------------------------------------------------
+      function showToast(msg) {
+        toastMsg.textContent = msg;
+        toastMsg.classList.remove('opacity-0');
+        toastMsg.classList.add('opacity-100');
+        setTimeout(() => {
+          toastMsg.classList.remove('opacity-100');
+          toastMsg.classList.add('opacity-0');
+        }, 2800);
+      }
+
+      const calendarEvents = {
+        puja: {
+          title: 'Puja, Haldi & Mehendi — Pooja & Pranav',
+          start: '20261203T043000Z',
+          end: '20261203T163000Z',
+          desc: 'Shri Satyanarayan Puja Katha, Haldi, Mehendi & Ratri Bhoj for Pooja & Pranav.'
+        },
+        baraat: {
+          title: 'Baraat Aagman & Priti Bhoj — Pooja & Pranav',
+          start: '20261204T073000Z',
+          end: '20261204T133000Z',
+          desc: 'Priti Bhoj from 1:00 PM onwards and grand Baraat Aagman at Hardar, Jokihat, Araria.'
+        },
+        wedding: {
+          title: 'Shubh Vivah — Pooja Kumari & Pranav Kumar',
+          start: '20261204T143000Z',
+          end: '20261205T003000Z',
+          desc: 'Auspicious Night Shubh Vivah ceremony of Pooja Kumari & Pranav Kumar.'
+        }
+      };
+
+      document.querySelectorAll('.add-cal-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const key = btn.getAttribute('data-event');
+          const ev = calendarEvents[key];
+          if (!ev) return;
+
+          const ics = [
+            'BEGIN:VCALENDAR',
+            'VERSION:2.0',
+            'PRODID:-//Pooja & Pranav//Sheesh Mahal Invite//EN',
+            'BEGIN:VEVENT',
+            `UID:pooja-pranav-${key}-2026@sheeshmahal`,
+            `DTSTAMP:20261121T153000Z`,
+            `DTSTART:${ev.start}`,
+            `DTEND:${ev.end}`,
+            `SUMMARY:${ev.title}`,
+            `DESCRIPTION:${ev.desc}`,
+            'LOCATION:Village Hardar, Ward No. 03, Post Jokihat, Dist. Araria, Bihar',
+            'END:VEVENT',
+            'END:VCALENDAR'
+          ].join('\r\n');
+
+          const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `Pooja-Pranav-${key}.ics`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+
+          showToast(currentLang === 'hi' ? 'कैलेंडर में जोड़ दिया गया' : 'Calendar event downloaded');
+        });
+      });
+
+      // -------------------------------------------------------------------
+      // 6. INTERACTIVE WHATSAPP RSVP BUILDER
+      // -------------------------------------------------------------------
+      let selectedStatus = 'Joyfully Attending';
+      let selectedCount = '2';
+
+      document.querySelectorAll('.rsvp-status-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.rsvp-status-btn').forEach((b) => {
+            b.classList.remove('border-gold', 'bg-gold/20', 'text-gold-light');
+            b.classList.add('border-gold/30', 'bg-obsidian-950/70', 'text-cream-muted');
+          });
+          btn.classList.remove('border-gold/30', 'bg-obsidian-950/70', 'text-cream-muted');
+          btn.classList.add('border-gold', 'bg-gold/20', 'text-gold-light');
+          selectedStatus = btn.getAttribute('data-status');
+        });
+      });
+
+      document.querySelectorAll('.count-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.count-btn').forEach((b) => {
+            b.classList.remove('border-gold', 'bg-gold', 'text-obsidian-950', 'font-bold');
+            b.classList.add('border-gold/30', 'text-cream-muted');
+          });
+          btn.classList.remove('border-gold/30', 'text-cream-muted');
+          btn.classList.add('border-gold', 'bg-gold', 'text-obsidian-950', 'font-bold');
+          selectedCount = btn.getAttribute('data-count');
+        });
+      });
+
+      document.getElementById('rsvpForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const guestName = document.getElementById('guestNameInput').value.trim();
+        if (!guestName) return;
+
+        const message =
+          `Namaste! 🙏\n` +
+          `Wedding RSVP for *Pooja & Pranav* (Dec 3–4, 2026):\n\n` +
+          `• *Name:* ${guestName}\n` +
+          `• *Response:* ${selectedStatus}\n` +
+          `• *Guests:* ${selectedCount}\n\n` +
+          `Heartiest congratulations to the Mandal Family!`;
+
+        const waUrl = `https://wa.me/917004071495?text=${encodeURIComponent(message)}`;
+        window.open(waUrl, '_blank', 'noopener,noreferrer');
+      });
+
+      // -------------------------------------------------------------------
+      // MEHENDI VIDEO SCRUB: page scroll maps directly to video time
+      // -------------------------------------------------------------------
+      const mehendiStage = document.getElementById('mehendiStage');
+      const mehendiVideo = document.getElementById('mehendiScrollVideo');
+      const mehendiProgress = document.getElementById('mehendiProgress');
+      const mehendiFallback = document.getElementById('mehendiVideoFallback');
+      let mehendiReady = false;
+      mehendiVideo.addEventListener('loadedmetadata', () => {
+        mehendiReady = true;
+        mehendiFallback.style.display = 'none';
+        updateMehendiFrame();
+      });
+      mehendiVideo.addEventListener('error', () => {
+        mehendiFallback.style.display = 'flex';
+      });
+      function updateMehendiFrame() {
+        if (!mehendiStage || !mehendiReady || !Number.isFinite(mehendiVideo.duration)) return;
+        const rect = mehendiStage.getBoundingClientRect();
+        const scrollable = mehendiStage.offsetHeight - window.innerHeight;
+        const progress = Math.min(1, Math.max(0, -rect.top / Math.max(scrollable, 1)));
+        const target = progress * Math.max(0, mehendiVideo.duration - 0.04);
+        if (Math.abs(mehendiVideo.currentTime - target) > 0.045) {
+          mehendiVideo.currentTime = target;
+        }
+        mehendiProgress.style.width = `${progress * 100}%`;
+        mehendiVideo.pause();
+      }
+      window.addEventListener('scroll', updateMehendiFrame, { passive: true });
+      window.addEventListener('resize', updateMehendiFrame);
+
+      // -------------------------------------------------------------------
+      // 7. SMOOTH SCROLL REVEAL OBSERVER
+      // -------------------------------------------------------------------
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll('.reveal-item').forEach((el) => observer.observe(el));
+
+      // -------------------------------------------------------------------
+      // 8. TWINKLING SHEESH MAHAL MIRROR-DUST SPARKLES (CANVAS)
+      // -------------------------------------------------------------------
+      const canvas = document.getElementById('mirrorDustCanvas');
+      const ctx = canvas.getContext('2d');
+      let cw = 0;
+      let ch = 0;
+
+      function resizeCanvas() {
+        const rect = canvas.getBoundingClientRect();
+        cw = canvas.width = rect.width || Math.min(window.innerWidth, 440);
+        ch = canvas.height = window.innerHeight;
+      }
+
+      window.addEventListener('resize', resizeCanvas);
+      resizeCanvas();
+
+      const sparkles = Array.from({ length: 42 }, () => ({
+        x: Math.random() * cw,
+        y: Math.random() * ch,
+        size: 0.6 + Math.random() * 1.4,
+        alpha: Math.random(),
+        speed: 0.008 + Math.random() * 0.015,
+        driftY: -0.12 - Math.random() * 0.2,
+        isGold: Math.random() > 0.35
+      }));
+
+      function renderSparkles() {
+        ctx.clearRect(0, 0, cw, ch);
+
+        for (let i = 0; i < sparkles.length; i++) {
+          const s = sparkles[i];
+          s.alpha += s.speed;
+          if (s.alpha >= 1 || s.alpha <= 0.08) {
+            s.speed = -s.speed;
+          }
+          s.y += s.driftY;
+          if (s.y < -5) {
+            s.y = ch + 5;
+            s.x = Math.random() * cw;
+          }
+
+          ctx.fillStyle = s.isGold
+            ? `rgba(223, 192, 124, ${s.alpha * 0.65})`
+            : `rgba(243, 237, 226, ${s.alpha * 0.45})`;
+          ctx.beginPath();
+          ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        requestAnimationFrame(renderSparkles);
+      }
+
+      window.onload = function () {
+        resizeCanvas();
+        renderSparkles();
+      };
+    })();
+  </script>
+</body>
+</html>
